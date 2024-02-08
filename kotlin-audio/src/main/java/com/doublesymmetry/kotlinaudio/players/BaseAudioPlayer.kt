@@ -3,7 +3,6 @@ package com.doublesymmetry.kotlinaudio.players
 import android.content.Context
 import android.media.AudioManager
 import android.media.AudioManager.AUDIOFOCUS_LOSS
-import android.media.MediaMetadata as MediaMetadataA
 import android.net.Uri
 import android.os.Bundle
 import android.os.ResultReceiver
@@ -391,17 +390,21 @@ abstract class BaseAudioPlayer internal constructor(
         return mediaSession.sessionToken
     }
 
-    public fun setPlaybackState(mediaID: String) {
+    public fun setMetaDataMediaID(mediaId: String) {
         // https://developer.android.com/training/cars/media#browse-progress-bar
         mediaSession.setMetadata(
             MediaMetadataCompat.Builder()
-                .putString(MediaMetadataA.METADATA_KEY_MEDIA_ID, mediaID)
+                .putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, mediaId)
                 // ...and any other setters.
                 .build())
+    }
+
+    public fun setPlaybackState(mediaId: String) {
+        // https://developer.android.com/training/cars/media#browse-progress-bar
 
         val playbackStateExtras = Bundle()
         playbackStateExtras.putString(
-            MediaConstants.PLAYBACK_STATE_EXTRAS_KEY_MEDIA_ID, mediaID)
+            MediaConstants.PLAYBACK_STATE_EXTRAS_KEY_MEDIA_ID, mediaId)
         mediaSession.setPlaybackState(
             PlaybackStateCompat.Builder()
                 .setExtras(playbackStateExtras)

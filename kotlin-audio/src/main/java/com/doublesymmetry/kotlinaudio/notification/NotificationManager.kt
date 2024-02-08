@@ -165,6 +165,11 @@ class NotificationManager internal constructor(
             ?: mediaItem?.getAudioItemHolder()?.audioItem?.albumTitle
     }
 
+    private fun getMediaId(index: Int? = null): String? {
+        val mediaItem = if (index == null) player.currentMediaItem else player.getMediaItemAt(index)
+        return mediaItem?.getAudioItemHolder()?.audioItem?.mediaId
+    }
+
     private fun getArtworkUrl(index: Int? = null): String? {
         return getMediaItemArtworkUrl(index)
     }
@@ -391,6 +396,9 @@ class NotificationManager internal constructor(
             }
             getAlbumTitle()?.let {
                 putString(MediaMetadataCompat.METADATA_KEY_ALBUM, it)
+            }
+            getMediaId()?.let {
+                putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, it)
             }
             getGenre()?.let {
                 putString(MediaMetadataCompat.METADATA_KEY_GENRE, it)

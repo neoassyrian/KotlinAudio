@@ -202,6 +202,7 @@ class MainActivity : ComponentActivity() {
                 artwork = "https://rntp.dev/example/Longing.jpeg",
                 artist = "David Chavez",
                 duration = 143 * 1000,
+                mediaId = "Longing"
             ),
             DefaultAudioItem(
                 "https://rntp.dev/example/Soul%20Searching.mp3",
@@ -210,6 +211,7 @@ class MainActivity : ComponentActivity() {
                 artwork = "https://rntp.dev/example/Soul%20Searching.jpeg",
                 artist = "David Chavez",
                 duration = 77 * 1000,
+                mediaId = "Soul"
             ),
             DefaultAudioItem(
                 "https://rntp.dev/example/Lullaby%20(Demo).mp3",
@@ -218,6 +220,7 @@ class MainActivity : ComponentActivity() {
                 artwork = "https://rntp.dev/example/Lullaby%20(Demo).jpeg",
                 artist = "David Chavez",
                 duration = 71 * 1000,
+                mediaId = "Lullaby"
             ),
             DefaultAudioItem(
                 "https://rntp.dev/example/Rhythm%20City%20(Demo).mp3",
@@ -226,6 +229,7 @@ class MainActivity : ComponentActivity() {
                 artwork = "https://rntp.dev/example/Rhythm%20City%20(Demo).jpeg",
                 artist = "David Chavez",
                 duration = 106 * 1000,
+                mediaId = "rhythmCity"
             ),
             DefaultAudioItem(
                 "https://rntp.dev/example/hls/whip/playlist.m3u8",
