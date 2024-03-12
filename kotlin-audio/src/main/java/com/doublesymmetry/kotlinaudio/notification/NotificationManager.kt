@@ -356,6 +356,7 @@ class NotificationManager internal constructor(
                         setIconUri(mediaItem?.mediaMetadata?.artworkUri ?: Uri.parse(audioItemHolder?.audioItem?.artwork
                             ?: ""))
                         setIconBitmap(audioItemHolder?.artworkBitmap)
+                        setMediaId(audioItemHolder?.audioItem?.mediaId)
                     }.build()
                 }
             }
@@ -377,6 +378,9 @@ class NotificationManager internal constructor(
         val currentItemMetadata = player.currentMediaItem?.mediaMetadata
 
         return MediaMetadataCompat.Builder().apply {
+            getMediaId()?.let {
+                putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, it)
+            }
             getArtist()?.let {
                 putString(MediaMetadataCompat.METADATA_KEY_ARTIST, it)
             }
